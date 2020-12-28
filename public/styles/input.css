@@ -65,3 +65,7 @@ textarea {
 .entry-form-input:focus {
     border: none;
 }
+
+.entry-form-input {
+    background: white;
+}

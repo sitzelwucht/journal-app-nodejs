@@ -47,9 +47,8 @@ a:visited {
 
 }
 
-
 .container {
-    margin: 2% auto;
+    margin: 1% auto;
     width: 55%;
     max-height: 70%;
     display: flex;
@@ -67,11 +66,15 @@ a:visited {
 #header {
     margin: 1em;
     padding: 1.5em;
+    font-size: .7em;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
+#header p {
+    font-size: 1.7em;
+}
 #center-box {
     display: flex;
     flex-direction: row;
@@ -84,7 +87,8 @@ a:visited {
 }
 #nav-bar p {
     margin: 1em;
-    font-family: 'El Messiri'
+    font-family: 'El Messiri';
+    font-size: 1.5em;
 }
 #content-box {
     width: 100%;
@@ -113,8 +117,14 @@ li {
 #logout {
     background: rgb(168, 168, 168);
     color: white;
-    height: 20px;
-    padding: .5em;
+    font-size: 1em;
+    height: 22px;
+    padding: .6em;
+    font-size: 1.5em;
+}
+
+#logout-icon {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(220deg) brightness(104%) contrast(107%);
 }
 #entry-form {
     display: flex;
@@ -150,4 +160,34 @@ li {
     margin: .5em;
  
 }
+
+
+.alert-warning {
+  padding: 20px;
+  background-color: #b18c55;
+  color: white;
+}
+
+.alert-success {
+    padding: 20px;
+    background-color: #4caf59;
+    color: white;
+  }
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+
+
 
