@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:wght@100;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@100;200&display=swap');
+
+body {
+    background: rgb(230, 230, 230);
+    font-family: 'Didact Gothic';
+    margin: 0;
+    box-sizing: border-box;
+    background: url('/pexels-scott-webb-311458.jpg');
+    background-position: right 35% bottom 45%;
+    background-attachment: fixed;
+    color: rgb(60,60,60)
+}
+header {
+    margin: .2em auto;
+    padding: .3em;
+    width: 80%;
+    text-align: center;
+    font-weight: 100;
+    text-align: right;
+    letter-spacing: .7em;
+    color: rgb(34, 34, 34);
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+h1 {
+    font-size: 2.4em;
+    letter-spacing: .3em;
+    font-family: 'El Messiri';
+}
+#quote {
+    font-family: 'Josefin Slab';
+    font-size: 1em;
+    letter-spacing: .3em;
+}
+a {
+    text-decoration: none;
+    color: rgb(34, 34, 34);
+}
+
+a:visited {
+    color: rgb(83, 83, 83);
+
+}
+
+
+.container {
+    margin: 2% auto;
+    width: 55%;
+    max-height: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+#content-flex {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#header {
+    margin: 1em;
+    padding: 1.5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#center-box {
+    display: flex;
+    flex-direction: row;
+    
+}
+#nav-bar {
+    width: 25%;
+    margin: 1em;
+    border: 1px dashed grey;
+}
+#nav-bar p {
+    margin: 1em;
+    font-family: 'El Messiri'
+}
+#content-box {
+    width: 100%;
+    margin: 1em;
+    padding: 1.2em;
+    border: 1px dashed grey;
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+li {
+    padding: .4em;
+    /* border: rgb(134, 134, 134) solid 1px; */
+    background-color: rgb(223, 223, 223);
+    margin: .5em;
+    width: 150px;
+    letter-spacing: .2em;
+}
+
+#logout {
+    background: rgb(168, 168, 168);
+    color: white;
+    height: 20px;
+    padding: .5em;
+}
+#entry-form {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(30,30,30,.1);
+    padding: 2em;
+    margin: 0;
+}
+ #entry-form-input {
+     width: 100%;
+ }
+#entry-form div {
+    margin: 1em .2em 1em .2em;
+}
+
+.entry-text {
+    border: 1px lightgray solid;
+    padding: 1.4em;
+    margin: 2em;
+    background-color: rgba(200,200,200,.4);
+}
+
+.date {
+    text-align: right;
+    margin: .5em;
+}
+.post-header {
+    font-family: 'El Messiri';
+    font-weight: bolder;
+    margin: .5em;
+}
+.post {
+    margin: .5em;
+ 
+}
+

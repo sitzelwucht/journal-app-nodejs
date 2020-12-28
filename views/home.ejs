@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal</title>
+    <link rel="stylesheet" type="text/css" href="../styles/base.css">
+    <link rel="stylesheet" type="text/css" href="../styles/input.css">
+</head>
+<body>
+
+    <header><h1>Journal</h1>
+        <h3 id="quote"></h3>
+    </header>
+    <div class="container">
+
+        <div id="content-flex">
+       
+       
+            <div id="header"><h1>Home</h1>
+                <p>Welcome <%= name %></p>
+                <a href="/users/logout" id="logout">Logout</a>
+            </div>
+        
+    
+            <div id="center-box">
+
+            <div id="nav-bar">
+                <ul>
+                    <a href="/new"><li>new</li></a>
+                   <a href="/archive"><li>archive</li></a>
+                   <a href=""><li>tags</li></a>
+                </ul>
+            </div>
+            
+            <div id="content-box">
+             
+            </div>
+
+            </div>
+         
+        </div>
+
+  
+
+    </div>
+
+
+<script>
+
+getQuote()
+async function getQuote() {
+  const rand = Math.floor(Math.random() * 150)
+  const result = await fetch('https://type.fit/api/quotes')
+
+  const data = await result.json()
+
+  let quote = {
+    author: data[rand].author,
+    quote: data[rand].text
+  }
+    document.querySelector('#quote').innerHTML= `${quote.quote} <br>- ${quote.author}`
+}
+</script>
+</body>
+</html>
+
