@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,20 +8,15 @@
     <link rel="stylesheet" type="text/css" href="../styles/input.css">
 </head>
 <body>
-
     <header><h1>Journal</h1>
-        <h3 id="quote"></h3>
-    </header>
+        <div id=><h3 id="quote"></h3>
+        <%- include('./partials/toggle') %></div>
+    </header>     
     <div class="container">
-
-      
         <%- body %>
-
     </div>
 
-
     <script>
-
         getQuote()
         async function getQuote() {
           const rand = Math.floor(Math.random() * 150)
@@ -36,7 +30,14 @@
           }
             document.querySelector('#quote').innerHTML= `${quote.quote} <br>- ${quote.author}`
         }
+
+        function toggleMode() {
+            let posts = document.querySelectorAll('.post')
+            document.body.classList.toggle('darkmode') 
+            document.querySelector('.container').classList.toggle('container-dark')
+            posts.forEach(item => item.classList.toggle('post-dark'))
+        }
+
         </script>
 </body>
 </html>
-

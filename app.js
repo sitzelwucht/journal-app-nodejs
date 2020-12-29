@@ -45,8 +45,6 @@ app.use(flash())
 app.use(passport.initialize())
 app.use(passport.session())
 
-
-
 // Globals
 app.use((req, res, next) => {
     res.locals.success_msg = req.flash('success_msg')
