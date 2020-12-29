@@ -195,7 +195,7 @@ li {
 .alert-warning {
   padding: .6em;
   margin-bottom: .4em;
-  background-color: #cac79a;
+  background-color: #ff7e47;
   color: white;
 
 }
@@ -243,3 +243,7 @@ li {
     background: rgb(50,50,50);
 }
 
+#fact p{
+    font-size: 1em;
+    letter-spacing: .1em;
+}

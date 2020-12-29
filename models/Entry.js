@@ -18,8 +18,10 @@ const EntrySchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-
-    //TODO: add logged-in user's id here
+    author: {
+        type: String,
+        required: true
+    }
 })
 
 

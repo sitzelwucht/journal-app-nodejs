@@ -26,7 +26,7 @@ async function getRandomFact() {
                 source: data.source_url
             }
     
-            document.querySelector('#fact').innerHTML = `Random fact: ${fact.text} <br>(${fact.source})`
+            document.querySelector('#fact').innerHTML = `<p>Random fact: ${fact.text}<p> <br>(${fact.source})`
                     
             }
         catch (err) {

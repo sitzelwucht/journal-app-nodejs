@@ -18,7 +18,7 @@ router.get('/new', checkAuth, (req, res) => {
 
 router.get('/archive', checkAuth, async (req, res) => {
     try {
-        const entries = await Entry.find()
+        const entries = await Entry.find({ author: req.user._id })
         res.render('archive', { name: req.user.username, entries })
     }
     catch (err) {
@@ -30,7 +30,8 @@ router.post('/add', async (req, res) => {
     const newEntry = new Entry({
         title: req.body.title,
         description: req.body.description,
-        tag: req.body.tag
+        tag: req.body.tag,
+        author: req.user._id
     })
 
     try {
