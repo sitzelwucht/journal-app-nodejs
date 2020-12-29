@@ -1,6 +1,6 @@
 # Journal App
 
-![journal-login](https://user-images.githubusercontent.com/61108220/103240055-89519000-494f-11eb-9409-da3523aecee4.png)
+![image](https://user-images.githubusercontent.com/61108220/103288663-afc20a80-49e5-11eb-86be-ce376cd44921.png)
 
 ## Use
 
