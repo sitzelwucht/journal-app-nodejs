@@ -161,17 +161,32 @@ li {
  
 }
 
+.welcome {
+    margin: 7em 2.5em;
+    font-size: 1.4em;
+    letter-spacing: .3em;
+    padding: .5em;
+    transition: all .4s ease-in-out;
+}
+
+.welcome:hover {
+    background: rgb(233, 239, 240);
+}
 
 .alert-warning {
-  padding: 20px;
-  background-color: #b18c55;
+  padding: .6em;
+  margin-bottom: .4em;
+  background-color: #cac79a;
   color: white;
+
 }
 
 .alert-success {
-    padding: 20px;
-    background-color: #4caf59;
+  padding: .6em;
+  margin-bottom: .4em;
+    background-color: #60c06d;
     color: white;
+
   }
 
 .closebtn {
@@ -182,7 +197,7 @@ li {
   font-size: 22px;
   line-height: 20px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.6s;
 }
 
 .closebtn:hover {

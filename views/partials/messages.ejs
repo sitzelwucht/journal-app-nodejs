@@ -1,6 +1,6 @@
 
-<% if (typeof errors != 'undefined') { %>
-  <% errors.forEach((error) => {   %>
+<% if (typeof signupErrors != 'undefined') { %>
+  <% signupErrors.forEach((error) => {   %>
     <div class="alert-warning">
       <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
       <%= error.msg %>
@@ -9,24 +9,23 @@
 <% } %>
 
 
-<% if (success_msg !== '') { %>
+<% if (success_msg != '') { %>
   <div class="alert-success">
     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
     <%= success_msg %>
   </div>
 <% } %>
 
-<% if (error_msg !== '') { %>
+<% if (error_msg != '') { %>
   <div class="alert-warning">
     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-    <%= error.msg %>
+    <%= error_msg %>
   </div>
 <% } %>
 
 
-<% if (error !== '') { %>
+<% if (error != '') { %>
   <div class="alert-warning">
-    <%= error %>
     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
     <%= error %>
   </div>

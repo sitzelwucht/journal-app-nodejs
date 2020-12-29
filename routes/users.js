@@ -23,20 +23,23 @@ router.get('/logout', (req, res) => {
 router.post('/register', (req, res) => {
     const { username, password, password2 } = req.body
 
-    let errors = []
+    let signupErrors = []
 
     if (!username || !password || !password2) {
-        errors.push({ msg: 'Please fill in all fields'})
+        signupErrors.push({ msg: 'Please fill in all fields'})
+    }
+    if (username.length < 3) {
+        signupErrors.push({ msg: 'Username has to be at least 3 characters'})
     }
     if (password !== password2) {
-        errors.push({ msg: 'Passwords do not match' })
+        signupErrors.push({ msg: 'Passwords do not match' })
     }
     if (password.length < 8) {
-        errors.push({ msg: 'Password has to be minimum 8 characters' })
+        signupErrors.push({ msg: 'Password has to be minimum 8 characters' })
     }
-    if (errors.length > 0) {
+    if (signupErrors.length > 0) {
         res.render('register', {
-            errors,
+            signupErrors,
             username, password, password2
         })
     }
@@ -44,8 +47,8 @@ router.post('/register', (req, res) => {
         User.findOne({ username: username })
         .then(user => {
             if(user) {
-                errors.push({ msg: 'Username already registered' })
-                res.render('register', { errors, username, password, password2 })
+                signupErrors.push({ msg: 'Username already registered' })
+                res.render('register', { signupErrors, username, password, password2 })
             }
             else {
                 const newUser = new User({

@@ -31,22 +31,24 @@ app.set('view engine', 'ejs')
 // bodyparser
 app.use(express.urlencoded({ extended: true }))
 
-// Express sesison
+// Express session
 app.use(session({
     secret: 'secret',
     resave: true,
     saveUninitialized: true,
 }))
 
+// connect flash
+app.use(flash())
+
 // Passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
 
-// connect flash
-app.use(flash())
+
 
 // Globals
-app.use(function(req, res, next){
+app.use((req, res, next) => {
     res.locals.success_msg = req.flash('success_msg')
     res.locals.error_msg = req.flash('error_msg')
     res.locals.error = req.flash('error')

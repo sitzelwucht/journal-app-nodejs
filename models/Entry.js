@@ -1,4 +1,6 @@
 const mongoose = require('mongoose')
+const User = require('./User')
+
 const EntrySchema = new mongoose.Schema({
     title: {
         type: String,
@@ -16,6 +18,8 @@ const EntrySchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
+
+    //TODO: add logged-in user's id here
 })
 
 
