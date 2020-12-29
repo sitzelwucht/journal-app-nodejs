@@ -9,35 +9,13 @@
 </head>
 <body>
     <header><h1>Journal</h1>
-        <div id=><h3 id="quote"></h3>
-        <%- include('./partials/toggle') %></div>
+        <div id="header-left">  <img src="/moon.svg" height=20 id="mode-icon" ><h3 id="quote"></h3>
     </header>     
     <div class="container">
         <%- body %>
     </div>
 
-    <script>
-        getQuote()
-        async function getQuote() {
-          const rand = Math.floor(Math.random() * 150)
-          const result = await fetch('https://type.fit/api/quotes')
-        
-          const data = await result.json()
-        
-          let quote = {
-            author: data[rand].author,
-            quote: data[rand].text
-          }
-            document.querySelector('#quote').innerHTML= `${quote.quote} <br>- ${quote.author}`
-        }
-
-        function toggleMode() {
-            let posts = document.querySelectorAll('.post')
-            document.body.classList.toggle('darkmode') 
-            document.querySelector('.container').classList.toggle('container-dark')
-            posts.forEach(item => item.classList.toggle('post-dark'))
-        }
-
-        </script>
+    
+    <script src="../js/script.js"></script>
 </body>
 </html>
