@@ -1,5 +1,6 @@
+
 getQuote()
-getRandomFact()
+// getRandomFact()
 
 async function getQuote() {
     const rand = Math.floor(Math.random() * 150)

@@ -85,12 +85,14 @@ a:visited {
 #center-box {
     display: flex;
     flex-direction: row;
-    
+    height: 100%;
 }
 #nav-bar {
     width: 25%;
+    max-height: 100%;
     margin: 1em;
     border: 1px dashed grey;
+    position: relative;
 }
 #nav-bar p {
     margin: 1em;
@@ -114,6 +116,7 @@ ul {
     margin: 0;
     padding: 0;
     width: 100%;
+    margin-bottom: 3em;
 }
 
 li {
@@ -179,6 +182,7 @@ li {
     font-size: .8em;
     margin: .5em;
     font-style: italic;
+    text-align: right;
 }
 .welcome {
     margin: 7em 2.5em;

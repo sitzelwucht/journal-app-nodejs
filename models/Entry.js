@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const User = require('./User')
 
 const EntrySchema = new mongoose.Schema({
     title: {
@@ -10,8 +9,8 @@ const EntrySchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    tag: {
-        type: String,
+    tags: {
+        type: Array,
         required: false
     },
     date: {

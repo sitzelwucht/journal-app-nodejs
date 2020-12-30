@@ -37,8 +37,9 @@ button {
 
 input {
     background: rgb(233, 239, 240);
-    border: none;
+    border: 1px solid rgba(0,0,0,.0);
     outline: none;
+    letter-spacing: .2em;
     font-size: .8em;
     font-family: 'Didact Gothic';
     padding: .9em;
@@ -62,8 +63,11 @@ textarea {
     color: rgb(120, 120, 120)
 }
 
+.entry-form-input {
+    border: 1px solid rgba(0,0,0,.0);
+}
 .entry-form-input:focus {
-    border: none;
+    border: 1px solid rgba(117, 117, 117, 0.9);
 }
 
 .entry-form-input {
@@ -75,3 +79,36 @@ textarea {
     filter: invert(29%) sepia(0%) saturate(1355%) hue-rotate(207deg) brightness(101%) contrast(81%);
     margin: .5em;
   }
+
+.search {
+    background: rgba(0,0,0,.0)
+  }
+
+  #search-form {
+    margin-top: 6em;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+  #search-form img {
+      margin-bottom: -10px;
+      padding: .6em;
+      filter: invert(91%) sepia(0%) saturate(0%) hue-rotate(238deg) brightness(92%) contrast(89%);
+  }
+
+  #search-field {
+    width: 70%;
+    color: rgb(165, 165, 165);
+      border-radius: 0;
+      border: none;
+      background: rgba(0,0,0,.0);
+  }
+
+  #search-field::placeholder {
+    color: rgb(180,180,180);
+  }
+

@@ -26,11 +26,17 @@ router.get('/archive', checkAuth, async (req, res) => {
     }
 })
 
+// TODO
+router.get('/search', async (req, res) => {
+    const results = await Entry.find({ tags: req.body.tags })
+    res.render('results', { name: req.user.username, results })
+})
+
 router.post('/add', async (req, res) => {
     const newEntry = new Entry({
         title: req.body.title,
         description: req.body.description,
-        tag: req.body.tag,
+        tags: req.body.tags,
         author: req.user._id
     })
 

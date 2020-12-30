@@ -5,22 +5,17 @@
     </div>
         
     <div id="center-box">
-        <div id="nav-bar">
-            <p> <%= name %></p>
-            <ul>
-                <a href="/new"><li>new</li></a>
-                <li class="current">archive</li>
-                <a href=""><li>tags</li></a>
-            </ul>
-        </div>
+        <%- include('./partials/navbar.ejs') %>
         <div id="content-box">
             <% for (let i = entries.length-1; i > 0; i--) { %>
                 <div class="entry-text">
                 <div class="date"><%= entries[i].date.toLocaleString() %></div>
                 <div class="post-header"><%= entries[i].title %></div>
                 <div class="post"><%= entries[i].description %></div>
-            <% if (entries[i].tag) { %> 
-                <div class="tag"><%= entries[i].tag %></div>
+            <% if (entries[i].tags) { %> 
+                <% for (let j = 0; j < entries[i].tags.length-2; j++) { %>
+                    <div class="tag"><a href=""><%= entries[i].tags[j] %></a></div>
+                    <% } %>
                 <% } %>
             </div> 
             <% } %>
