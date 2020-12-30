@@ -4,7 +4,7 @@
 
 ## Use
 
-This is a node.js app where the user creates an account and can then log in in order to write and read entries. 
+This is a node.js app where the user creates an account and can then log in in order to write and read entries, and search for entries including a given string. Authentication with Passport takes place before displaying any account-specific information.
 
 ## Installation
 

@@ -16,6 +16,10 @@ router.get('/new', checkAuth, (req, res) => {
     res.render('new', { name: req.user.username})
 })
 
+router.get('/results', checkAuth, (req, res) => {
+    res.render('results', { name: req.user.username})
+})
+
 router.get('/archive', checkAuth, async (req, res) => {
     try {
         const entries = await Entry.find({ author: req.user._id })
@@ -26,9 +30,12 @@ router.get('/archive', checkAuth, async (req, res) => {
     }
 })
 
-// TODO
-router.get('/search', async (req, res) => {
-    const results = await Entry.find({ tags: req.body.tags })
+
+router.post('/search', async (req, res) => {
+   const results = await Entry.find({ 
+       author: req.user._id, 
+       description: new RegExp(req.body.search, 'i') 
+    })
     res.render('results', { name: req.user.username, results })
 })
 
