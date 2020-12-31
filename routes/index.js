@@ -4,6 +4,8 @@ const router = express.Router()
 const { checkAuth } = require('../config/auth')
 const Entry = require('../models/Entry')
 
+// GET
+
 router.get('/', (req, res) => res.render('welcome'))
 
 router.get('/home', checkAuth, (req, res) => {
@@ -30,7 +32,13 @@ router.get('/archive', checkAuth, async (req, res) => {
     }
 })
 
+router.get('/tags', checkAuth, (req, res) => {
+    res.render('tags', { name: req.user.username})
+})
 
+//POST
+
+// query for posts with search string
 router.post('/search', async (req, res) => {
    const results = await Entry.find({ 
        author: req.user._id, 
@@ -39,11 +47,16 @@ router.post('/search', async (req, res) => {
     res.render('results', { name: req.user.username, results })
 })
 
+// put tags into an array
 router.post('/add', async (req, res) => {
+    let tagsString = req.body.tags
+    let tags = tagsString.trim()
+    let tagsArr = tags.split(',')
+
     const newEntry = new Entry({
         title: req.body.title,
         description: req.body.description,
-        tags: req.body.tags,
+        tags: tagsArr,
         author: req.user._id
     })
 

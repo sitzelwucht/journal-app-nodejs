@@ -22,7 +22,6 @@ header {
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
-
 }
 
 h1 {
@@ -85,8 +84,10 @@ a:visited {
 #center-box {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     height: 100%;
 }
+
 #nav-bar {
     width: 25%;
     max-height: 100%;
@@ -100,14 +101,9 @@ a:visited {
     font-size: 1.5em;
 }
 
-.current {
-    background: grey;
-    color: white;
-}
 #content-box {
     width: 100%;
     margin: 1em;
-    /* padding: 1.2em; */
 }
 
 
@@ -124,6 +120,12 @@ li {
     background-color: rgb(223, 223, 223);
     margin: .5em;
     letter-spacing: .2em;
+    transition: all .4s ease-in;
+}
+
+.link:hover {
+    background-color: rgb(165, 165, 165);
+    color: white;
 }
 
 #logout {
@@ -138,19 +140,7 @@ li {
 #logout-icon {
     filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(220deg) brightness(104%) contrast(107%);
 }
-#entry-form {
-    display: flex;
-    flex-direction: column;
-    background-color: rgba(30,30,30,.1);
-    padding: 2em;
-    margin: 0;
-}
- #entry-form-input {
-     width: 100%;
- }
-#entry-form div {
-    margin: 1em .2em 1em .2em;
-}
+
 
 .entry-text {
     padding: 1em;
@@ -165,11 +155,12 @@ li {
 .post-header {
     font-family: 'El Messiri';
     text-transform: uppercase;
-    margin: .7em;
+    letter-spacing: .2em;
+    margin: .5em;
 }
 .post {
     margin: .5em;
-    padding: .8em;
+    padding: .8em 0;
     line-height: 1.5em;
     letter-spacing: .03em;
     background: rgba(250, 250, 250, .8); 
@@ -182,8 +173,15 @@ li {
     font-size: .8em;
     margin: .5em;
     font-style: italic;
-    text-align: right;
+    margin-left: .3em;
+    background: rgb(240, 240, 240);
+    transition: all .3s ease-in;
 }
+
+span:hover {
+    background: rgb(224, 224, 224)
+}
+
 .welcome {
     margin: 7em 2.5em;
     font-size: 1.4em;
@@ -197,34 +195,34 @@ li {
 }
 
 .alert-warning {
-  padding: .6em;
-  margin-bottom: .4em;
-  background-color: #ff7e47;
-  color: white;
+    padding: .6em;
+    margin-bottom: .4em;
+    background-color: #ff7e47;
+    color: white;
 
 }
 
 .alert-success {
-  padding: .6em;
-  margin-bottom: .4em;
+    padding: .6em;
+    margin-bottom: .4em;
     background-color: #60c06d;
     color: white;
 
   }
 
 .closebtn {
-  margin-left: 15px;
-  color: white;
-  font-weight: bold;
-  float: right;
-  font-size: 22px;
-  line-height: 20px;
-  cursor: pointer;
-  transition: 0.6s;
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.6s;
 }
 
 .closebtn:hover {
-  color: black;
+    color: black;
 }
 
 

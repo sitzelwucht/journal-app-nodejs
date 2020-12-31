@@ -4,19 +4,19 @@
       <form action="/users/register" method="POST">
         <div class="form-group">
             <label for="username">Username:</label>
-            <input type="name" id="username" name="username" class="form-control" placeholder="Enter Username"
+            <input type="name" id="username" name="username" class="form-control login" placeholder="Enter Username"
             value="<%= typeof username != 'undefined' ? username : '' %>"/>
           </div>
 
         <div class="form-group">
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" class="form-control" placeholder="Create password"
+            <input type="password" id="password" name="password" class="form-control login" placeholder="Create password"
             value="<%= typeof password != 'undefined' ? password : '' %>"/>
         </div>
 
         <div class="form-group">
             <label for="password2">Confirm password:</label>
-            <input type="password" id="password2" name="password2" class="form-control" placeholder="Confirm password"
+            <input type="password" id="password2" name="password2" class="form-control login" placeholder="Confirm password"
             value="<%= typeof password2 != 'undefined' ? password2 : '' %>"/>
           </div>
 

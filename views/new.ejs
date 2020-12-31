@@ -7,23 +7,15 @@
         
     <div id="center-box">
         <%- include('./partials/navbar.ejs') %>
-        <div id="content-box">
-            <div id="entry-form">
-                <form action="/add" method="POST">
-                    <div><input type="text" id="title" name="title" class="entry-form-input" placeholder="title"></div>
-                    <div><textarea id="entry" name="description" rows="10" cols="100" class="entry-form-input" placeholder="entry"></textarea></div>
-                    <div><input type="text" id="tags" name="tags" class="entry-form-input" placeholder="tags"></div>
+            <div id="compose">
+                <form id="entry-form" action="/add" method="POST">
+                    <div class="entry-form-input"><input type="text" id="title" name="title" placeholder="title"></div>
+                    <div class="entry-form-input"><textarea id="entry" name="description" rows="12" cols="100" placeholder="entry"></textarea></div>
+                    <div class="entry-form-input"><input type="text" id="tags" name="tags" placeholder="tags"></div>
                     <button type="submit">Save</button>
                 </form>
             </div>
-        </div>
     </div>
 </div>
-<script>document.querySelector('#tags').addEventListener('keypress', (evt) =>{
-    if (event.code == 'Comma') {
-        // add tag to db
-    }
-})
-</script>
 
   
