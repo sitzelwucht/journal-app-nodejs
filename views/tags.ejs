@@ -7,7 +7,19 @@
     <div id="center-box">
         <%- include('./partials/navbar.ejs') %>
         <div id="content-box">
-            A tag cloud will be here
+            <ul class="tag-list">
+            <% for (let i = 0; i < uniqueTags.length; i++) { %>
+                     <li>
+                         <!-- TO BE FIXED -->
+                        <form method="post" action="/searchbytag" class="searchform">
+                            <input type="hidden" name="tag" value="<%= uniqueTags[i] %>">
+                            <button type="submit" class="link-button">
+                                <%= uniqueTags[i] %>
+                            </button>
+                          </form>
+                    </li>
+                <% } %>
+            </ul>
         </div>
     </div>
 </div>

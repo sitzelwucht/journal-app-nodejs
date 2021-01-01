@@ -249,3 +249,8 @@ span:hover {
     font-size: 1em;
     letter-spacing: .1em;
 }
+.tag-list li {
+    background: white!important;
+    margin-left: 2em;
+    margin-top: .3em!important;
+}

@@ -156,9 +156,22 @@ textarea:focus {
     background: rgba(0,0,0,.0);
 }
 
-
 #search-field::placeholder {
     color: rgb(180,180,180);
     letter-spacing: .2em;
   }
 
+.link-button {
+    background: rgb(168, 168, 168);
+    font-family: 'El Messiri';
+    font-size: .9em;
+    letter-spacing: .2em;
+    padding: .5em;
+    cursor: pointer;
+    margin: 0!important;
+    transition: all .3s ease-in;
+}
+
+.link-button:hover {
+    background: rgb(83, 83, 83);
+}

@@ -32,8 +32,32 @@ router.get('/archive', checkAuth, async (req, res) => {
     }
 })
 
-router.get('/tags', checkAuth, (req, res) => {
-    res.render('tags', { name: req.user.username})
+// find all tags and make a list with only unique items
+router.get('/tags', checkAuth, async (req, res) => {
+    const tagsList = []
+    let uniqueTags = []
+    try {
+        const entries = await Entry.find({ author: req.user._id })
+        for (let i = 0; i < entries.length; i++) {
+            if ('tags' in entries[i]) {
+               entries[i].tags.forEach(item => {
+                    item = item.trim()
+                    tagsList.push(item)
+                    const uniques = new Set(tagsList)
+                    uniqueTags = [...uniques]
+               })      
+            }
+        }
+        res.render('tags', { name: req.user.username, uniqueTags })
+    }
+    catch (err) {
+        console.log(err)
+    }
+    
+})
+
+router.get('/resultsbytag', async (req, res) => {
+    res.render('tags', { name: req.user.username, resultsByTag })
 })
 
 //POST
@@ -47,7 +71,18 @@ router.post('/search', async (req, res) => {
     res.render('results', { name: req.user.username, results })
 })
 
-// put tags into an array
+
+// TODO: figure this out
+router.post('/searchbytag', async (req, res) => {
+    const resultsByTag = await Entry.find({
+        author: req.user._id,
+        tags: {$in: [req.body.tag] }
+    })
+
+    res.render('resultsbytag', { name: req.user.username, selectedTag: req.body.tag, resultsByTag })
+})
+
+// add an entry, put tags into an array
 router.post('/add', async (req, res) => {
     let tagsString = req.body.tags
     let tags = tagsString.trim()
