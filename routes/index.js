@@ -10,12 +10,15 @@ router.get('/', (req, res) => res.render('welcome'))
 
 router.get('/home', checkAuth, (req, res) => {
     res.render('home', {
-        name: req.user.username
+        name: req.user.username,
+        pageheader: 'home'
     })
 })
 
 router.get('/new', checkAuth, (req, res) => {
-    res.render('new', { name: req.user.username, pageheader: 'new entry' })
+    res.render('new', { 
+        name: req.user.username,
+        pageheader: 'new entry' })
 })
 
 router.get('/results', checkAuth, (req, res) => {
@@ -25,7 +28,10 @@ router.get('/results', checkAuth, (req, res) => {
 router.get('/archive', checkAuth, async (req, res) => {
     try {
         const entries = await Entry.find({ author: req.user._id })
-        res.render('archive', { name: req.user.username, pageheader: 'archive', entries })
+        res.render('archive', { 
+            name: req.user.username, 
+            pageheader: 'archive', 
+            entries })
     }
     catch (err) {
         console.log(err)
@@ -47,7 +53,10 @@ router.get('/tags', checkAuth, async (req, res) => {
                })      
             }
         }
-        res.render('tags', { name: req.user.username, pageheader: 'tags', uniqueTags })
+        res.render('tags', { 
+            name: req.user.username, 
+            pageheader: 'tags', 
+            uniqueTags })
     }
     catch (err) {
         console.log(err)
@@ -56,7 +65,10 @@ router.get('/tags', checkAuth, async (req, res) => {
 })
 
 router.get('/resultsbytag', async (req, res) => {
-    res.render('tags', { name: req.user.username, pageheader: 'results by tag', resultsByTag })
+    res.render('tags', { 
+        name: req.user.username, 
+        pageheader: 'results by tag', 
+        resultsByTag })
 })
 
 // get individual post
@@ -64,7 +76,10 @@ router.get('/entries/:id', async (req, res) => {
     const id = req.params.id
     try {
         const singleEntry = await Entry.findById(id)
-        res.render('details', { name: req.user.username, pageheader: singleEntry.title, entry: singleEntry })
+        res.render('details', { 
+            name: req.user.username, 
+            pageheader: singleEntry.title, 
+            entry: singleEntry })
     }
     catch (err) {
         res.json({ message: err })
@@ -79,19 +94,22 @@ router.post('/search', async (req, res) => {
        author: req.user._id, 
        description: new RegExp(req.body.search, 'i') 
     })
-    res.render('results', { name: req.user.username, pageheader: 'results', results })
+    res.render('results', { 
+        name: req.user.username, 
+        pageheader: 'results', 
+        results })
 })
 
-// TODO: this is not working
+// TODO: why querying specifically array items is not working
 router.post('/searchbytag', async (req, res) => {
-    console.log(req.body.tag)
     const resultsByTag = await Entry.find({
-        author: req.user._id,
-        // tags: {$in: [req.body.tag] 
-        tags: { $elemMatch: { $eq: req.body.tag } }
+        author: req.user._id, 
+        tags: new RegExp(req.body.tag, 'i') 
     })
-
-    res.render('resultsbytag', { name: req.user.username, pageheader: 'results by tag', selectedTag: req.body.tag, resultsByTag })
+    res.render('resultsbytag', { 
+        name: req.user.username, 
+        selectedTag: req.body.tag, 
+        resultsByTag })
 })
 
 // add an entry, put tags into an array

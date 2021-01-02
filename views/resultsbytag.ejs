@@ -1,6 +1,8 @@
 
 <div id="content-flex">
-    <%- include('./partials/header.ejs') %>
+    <div id="header"><h1>results for tag '<%= selectedTag %>'</h1>
+        <a href="/users/logout" id="logout"><img src="/logout.svg" id="logout-icon" height=15" title="Log out"></a>
+    </div>
     <div id="center-box">
         <%- include('./partials/navbar.ejs') %>
         <div id="content-box">
@@ -8,13 +10,11 @@
             No results were found
             <% } %>
             <% for (let i = 0; i < resultsByTag.length; i++) { %>
-               
                 <div class="entry-text">
                     <div class="date"><%= resultsByTag[i].date.toLocaleString() %></div>
                     <a href="/entries/<%= resultsByTag[i]._id %>" class="post-header-link"><div class="post-header"><%= resultsByTag[i].title %></div></a>
                     <div class="post"><%= (resultsByTag[i].description.length > 300) ? `${resultsByTag[i].description.substr(0, 300)} (...) `: resultsByTag[i].description %></div>
                 </div>
-                
             <% }%>
         </div>
     </div>
