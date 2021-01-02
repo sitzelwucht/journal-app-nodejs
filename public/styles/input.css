@@ -26,7 +26,7 @@ label {
 }
 button {
     font-size: 1.1em;
-    background-color: rgb(10,10,10);
+    background-color: rgb(50,50,50);
     color: white;
     border: none;
     padding: .6em;
@@ -48,7 +48,6 @@ button {
 
 input:focus {
     border: rgb(85, 127, 138) 1px solid;
-   
 }
 
 textarea {
@@ -59,7 +58,8 @@ textarea {
     background-color: rgba(100,100,100,.1);
     border: 1px solid rgba(0,0,0,.0);
     outline: none;
-    font-size: .8em;
+    font-size: .9em;
+    letter-spacing: .1em;
     padding: 1em;
     border-radius: 3px;
     color: rgb(120, 120, 120)
@@ -69,9 +69,6 @@ textarea::placeholder {
     letter-spacing: .2em;
 }
 
-textarea:focus {
-    border: 1px solid rgba(117, 117, 117, 0.9);
-}
 #entry-form {
     display: flex;
     flex-direction: column;
@@ -90,13 +87,11 @@ textarea:focus {
     margin-bottom: .4em;
 }
 
-#title {
-    margin-bottom: .5em;
-}
-
+#title,
 #entry {
     margin-bottom: .5em;
 }
+
 #compose {
     width: 95%;
     max-width: 100%;
@@ -106,20 +101,20 @@ textarea:focus {
     box-sizing: border-box;
     outline: none;
     padding: .8em;
+    font-size: .9em;
+    letter-spacing: .2em;
+    color: rgb(120, 120, 120);
     border-radius: 3px;
     border: 1px solid rgba(0,0,0,.0);
     background-color: rgba(100,100,100,.1);
     width: 100%;
 }
-.entry-form-input input:focus {
-    border: 1px solid rgba(117, 117, 117, 0.9);
-}
 
 .entry-form-input input::placeholder {
+    font-family: monospace;
     font-size: 1em;
     letter-spacing: .2em;
 }
-
 
 #mode-icon {
     filter: invert(29%) sepia(0%) saturate(1355%) hue-rotate(207deg) brightness(101%) contrast(81%);
@@ -162,16 +157,19 @@ textarea:focus {
   }
 
 .link-button {
-    background: rgb(168, 168, 168);
-    font-family: 'El Messiri';
+    border: solid 1px rgb(117, 117, 117);
+    background: rgba(0,0,0,.0);
+    color: rgb(20,20,20);
+    font-family: 'Didact Gothic';
     font-size: .9em;
     letter-spacing: .2em;
-    padding: .5em;
+    padding: .3em;
     cursor: pointer;
-    margin: 0!important;
     transition: all .3s ease-in;
+    margin: 0!important;
 }
 
 .link-button:hover {
     background: rgb(83, 83, 83);
+    color: white;
 }

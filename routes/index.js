@@ -43,8 +43,7 @@ router.get('/tags', checkAuth, async (req, res) => {
                entries[i].tags.forEach(item => {
                     item = item.trim()
                     tagsList.push(item)
-                    const uniques = new Set(tagsList)
-                    uniqueTags = [...uniques]
+                    uniqueTags = [...new Set(tagsList)]
                })      
             }
         }
@@ -59,6 +58,16 @@ router.get('/tags', checkAuth, async (req, res) => {
 router.get('/resultsbytag', async (req, res) => {
     res.render('tags', { name: req.user.username, resultsByTag })
 })
+// get individual post
+router.get('/entries/:id', async (req, res) => {
+    const id = req.params.id
+    try {
+        res.send(id)
+    }
+    catch (err) {
+        res.json({ message: err })
+    }
+})
 
 //POST
 
@@ -71,14 +80,12 @@ router.post('/search', async (req, res) => {
     res.render('results', { name: req.user.username, results })
 })
 
-
-// TODO: figure this out
+// query for posts with a given tag
 router.post('/searchbytag', async (req, res) => {
     const resultsByTag = await Entry.find({
         author: req.user._id,
         tags: {$in: [req.body.tag] }
     })
-
     res.render('resultsbytag', { name: req.user.username, selectedTag: req.body.tag, resultsByTag })
 })
 
@@ -104,5 +111,19 @@ router.post('/add', async (req, res) => {
     }
 
 })
+
+
+// DELETE
+router.delete('/entries/:id', async (req, res) => {
+    const id = req.params.id
+    try {
+        const result = await Entry.findByIdAndDelete(id)
+        res.json({ redirect: '/archive' })
+    }
+    catch (err) {
+        res.json({ message: err })
+    }
+})
+
 
 module.exports = router

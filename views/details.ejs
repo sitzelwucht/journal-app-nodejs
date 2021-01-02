@@ -1,0 +1,54 @@
+
+<div id="content-flex">
+    <div id="header"><h1>archive</h1>
+        <a href="/users/logout" id="logout"><img src="./logout.svg" id="logout-icon" height=15" title="Log out"></a>
+    </div>
+        
+    <div id="center-box">
+        <%- include('./partials/navbar.ejs') %>
+        <div id="content-box">
+           
+                Single entry goes here
+
+                <div class="post-bottom">
+                    <a class="delete" data-doc= "<%= entries[i]._id %>">delete</a>
+        </div>
+        
+    </div>
+</div>
+
+<script>
+
+    const trash = document.querySelectorAll('a.delete')
+    
+    for (let i = 0; trash.length; i++) {
+        trash[i].addEventListener('click', (e) => {
+            const endpoint = `/entries/${trash.dataset.doc}`
+            fetch(endpoint, {
+            method: 'DELETE'
+        })
+        .then((response) => { response.json() })
+        .then(data => console.log(data))
+        .catch(err => console.log(err))
+        })
+    }
+    
+
+</script>
+  
+<script>
+    
+    const trash = document.querySelector('a.delete')
+    
+    
+    trash.addEventListener('click', (e) => {
+        const endpoint = `/entries/${trash.dataset.doc}`
+        fetch(endpoint, {
+            method: 'DELETE'
+        })
+        .then((response) => { response.json() })
+        .then(data => console.log(data))
+        .catch(err => console.log(err))
+    })
+
+</script>

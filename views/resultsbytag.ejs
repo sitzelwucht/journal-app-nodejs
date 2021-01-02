@@ -1,6 +1,6 @@
 
 <div id="content-flex">
-    <div id="header"><h1>results by tag <%= selectedTag %> </h1>
+    <div id="header"><h1>results by tag '<%= selectedTag %>' </h1>
         <a href="/users/logout" id="logout"><img src="./logout.svg" id="logout-icon" height=15" title="Log out"></a>
     </div>
         
@@ -15,9 +15,9 @@
                 <div class="date"><%= resultsByTag[i].date.toLocaleString() %></div>
                 <div class="post-header"><%= resultsByTag[i].title %></div>
                 <div class="post"><%= resultsByTag[i].description %></div>
-            <% if (resultsByTag[i].tag) { %> 
-                <div class="tag"><%= resultsByTag[i].tag %></div>
-                <% } %>
+                <div class="post-bottom">
+                    <img src="./trash.svg" class="delete">
+                </div>
             </div> 
             <% }%>
         </div>

@@ -70,12 +70,16 @@ a:visited {
 }
 
 #header {
-    margin: 1em;
+    margin: 15px;
+    margin-bottom: 0;
     padding: 1.5em;
     font-size: .7em;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    border-top: 1px solid rgb(168, 168, 168);
+    border-left: 1px solid rgb(168, 168, 168);
+
 }
 
 #header p {
@@ -91,8 +95,10 @@ a:visited {
 #nav-bar {
     width: 25%;
     max-height: 100%;
-    margin: 1em;
-    border: 1px dashed grey;
+    margin: 15px;
+    margin-top: 0;
+    border-bottom: 1px solid rgb(168, 168, 168);
+    border-left: 1px solid rgb(168, 168, 168);
     position: relative;
 }
 #nav-bar p {
@@ -105,7 +111,6 @@ a:visited {
     width: 100%;
     margin: 1em;
 }
-
 
 ul {
     list-style-type: none;
@@ -141,7 +146,6 @@ li {
     filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(220deg) brightness(104%) contrast(107%);
 }
 
-
 .entry-text {
     padding: 1em;
     margin: .2em;
@@ -160,7 +164,7 @@ li {
 }
 .post {
     margin: .5em;
-    padding: .8em 0;
+    padding: .8em .5em;
     line-height: 1.5em;
     letter-spacing: .03em;
     background: rgba(250, 250, 250, .8); 
@@ -174,16 +178,22 @@ li {
     margin: .5em;
     font-style: italic;
     margin-left: .3em;
-    background: rgb(240, 240, 240);
-    transition: all .3s ease-in;
+    background: rgba(0, 0, 0,0);
 }
 
-span:hover {
-    background: rgb(224, 224, 224)
+
+.post-bottom {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+.delete {
+    filter: invert(55%) sepia(1%) saturate(0%) hue-rotate(135deg) brightness(85%) contrast(94%);
 }
 
 .welcome {
     margin: 7em 2.5em;
+    color: rgb(180, 180, 180)!important;
     font-size: 1.4em;
     letter-spacing: .3em;
     padding: .5em;
@@ -192,22 +202,19 @@ span:hover {
 
 .welcome:hover {
     background: rgb(233, 239, 240);
+    color: rgb(99, 99, 99)!important;
 }
 
-.alert-warning {
+.alert {
     padding: .6em;
     margin-bottom: .4em;
+    color: white;
+}
+.warning {
     background-color: #ff7e47;
-    color: white;
-
 }
-
-.alert-success {
-    padding: .6em;
-    margin-bottom: .4em;
+.success {
     background-color: #60c06d;
-    color: white;
-
   }
 
 .closebtn {
@@ -223,8 +230,8 @@ span:hover {
 
 .closebtn:hover {
     color: black;
+    background: rgba(0,0,0,.0)
 }
-
 
 .darkmode {
     background: url('/pexels-luis-ruiz-991422.jpg');
@@ -232,7 +239,7 @@ span:hover {
 }
 
 .container-dark {
-    background: rgba(20,20,20,.5);
+    background: rgba(20,20,20,.6);
     color: white
 }
 
@@ -241,16 +248,23 @@ span:hover {
     color: white
 }
 
-.li-current-dark {
-    background: rgb(50,50,50);
+.input-dark {
+    background-color: rgba(0,0,0,.5);
+    color: white!important
 }
 
-#fact p{
-    font-size: 1em;
-    letter-spacing: .1em;
-}
-.tag-list li {
-    background: white!important;
+.tag-list {
+    background: rgba(0,0,0,.0);
     margin-left: 2em;
-    margin-top: .3em!important;
+    display: flex;
+    width: 70%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
+
+.tag-list span {
+    margin: .35em;
+}
+

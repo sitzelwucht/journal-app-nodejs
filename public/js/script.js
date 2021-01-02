@@ -1,6 +1,5 @@
 
 getQuote()
-// getRandomFact()
 
 async function getQuote() {
     const rand = Math.floor(Math.random() * 150)
@@ -16,25 +15,6 @@ async function getQuote() {
 
     }
         
-
-async function getRandomFact() {
-    const response = await fetch('https://uselessfacts.jsph.pl/random.json?language=en')
-        try {
-            const data = await response.json()
-    
-            const fact = {
-                text: data.text,
-                source: data.source_url
-            }
-    
-            document.querySelector('#fact').innerHTML = `<p>Random fact: ${fact.text}<p> <br>(${fact.source})`
-                    
-            }
-        catch (err) {
-            console.log(err)
-        }
-    }
-
         // dark mode
     
 const currentTheme = localStorage.getItem("theme");
@@ -44,6 +24,7 @@ const currentTheme = localStorage.getItem("theme");
         document.querySelector('.container').classList.add('container-dark')
         document.querySelectorAll('.current').forEach(item => item.classList.add('li-current-dark'))
         document.querySelectorAll('.post').forEach(item => item.classList.add('post-dark'))
+        document.querySelectorAll('.entry-form-input').forEach(item => item.classList.add('input-dark'))
         document.querySelector('#mode-icon').src = '/sun.svg'
     }
 
@@ -52,6 +33,8 @@ const currentTheme = localStorage.getItem("theme");
         document.querySelector('.container').classList.toggle('container-dark')
         document.querySelectorAll('.current').forEach(item => item.classList.toggle('li-current-dark'))
         document.querySelectorAll('.post').forEach(item => item.classList.toggle('post-dark'))
+        document.querySelectorAll('.entry-form-input').forEach(item => item.classList.toggle('input-dark'))
+
        
         let theme = "light";
         if (document.body.classList.contains('darkmode')) {

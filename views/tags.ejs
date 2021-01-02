@@ -7,19 +7,18 @@
     <div id="center-box">
         <%- include('./partials/navbar.ejs') %>
         <div id="content-box">
-            <ul class="tag-list">
+            <div class="tag-list">
             <% for (let i = 0; i < uniqueTags.length; i++) { %>
-                     <li>
-                         <!-- TO BE FIXED -->
+                     <span>
                         <form method="post" action="/searchbytag" class="searchform">
                             <input type="hidden" name="tag" value="<%= uniqueTags[i] %>">
                             <button type="submit" class="link-button">
                                 <%= uniqueTags[i] %>
                             </button>
                           </form>
-                    </li>
+                    </span>
                 <% } %>
-            </ul>
+            </div>
         </div>
     </div>
 </div>
