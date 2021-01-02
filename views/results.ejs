@@ -1,24 +1,25 @@
 
 <div id="content-flex">
-    <div id="header"><h1>results</h1>
-        <a href="/users/logout" id="logout"><img src="./logout.svg" id="logout-icon" height=15" title="Log out"></a>
-    </div>
-        
+    <%- include('./partials/header.ejs') %>
     <div id="center-box">
         <%- include('./partials/navbar.ejs') %>
         <div id="content-box">
         <% if (results.length == 0) { %> 
             No results were found
             <% } %>
+
             <% for (let i = 0; i <  results.length; i++) { %>
-                <div class="entry-text">
-                <div class="date"><%= results[i].date.toLocaleString() %></div>
-                <div class="post-header"><%= results[i].title %></div>
-                <div class="post"><%= results[i].description %></div>
-            <% if (results[i].tag) { %> 
-                <div class="tag"><%= results[i].tag %></div>
-                <% } %>
-            </div> 
+                
+                    <div class="entry-text">
+                        <div class="date"><%= results[i].date.toLocaleString() %></div>
+                        <a href="/entries/<%= results[i]._id %>" class="post-header-link"><div class="post-header"><%= results[i].title %></div></a>
+                        <div class="post"><%= (results[i].description.length > 300) ? `${results[i].description.substr(0, 300)} (...) `: results[i].description %></div>
+                        
+                    <% if (results[i].tag) { %> 
+                        <div class="tag"><%= results[i].tag %></div>
+                    <% } %>
+                    </div>
+                
             <% }%>
         </div>
     </div>

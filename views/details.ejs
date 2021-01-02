@@ -1,54 +1,34 @@
 
 <div id="content-flex">
-    <div id="header"><h1>archive</h1>
-        <a href="/users/logout" id="logout"><img src="./logout.svg" id="logout-icon" height=15" title="Log out"></a>
-    </div>
-        
+    <%- include('./partials/header.ejs') %>
     <div id="center-box">
         <%- include('./partials/navbar.ejs') %>
         <div id="content-box">
            
-                Single entry goes here
+            <div class="entry-text">
+                <div class="date"><%= entry.date.toLocaleString() %></div>
+                <div class="post-header"><%= entry.title %></div>
+                <div class="post"><%= entry.description %></div>
 
+            <% if (entry.tags.length > 0) { %> 
+                <% for (let j = 0; j < entry.tags.length; j++) { %>
+                    <span class="tag"><%= entry.tags[j] %></span>
+                    <% } %>
+                <% } %>
                 <div class="post-bottom">
-                    <a class="delete" data-doc= "<%= entries[i]._id %>">delete</a>
+                    <a class="delete" data-doc= "<%= entry._id %>"><img src="/trash.svg" title="delete" height="25"></a>
+                </div>
+            </div>
         </div>
-        
     </div>
 </div>
-
 <script>
-
-    const trash = document.querySelectorAll('a.delete')
-    
-    for (let i = 0; trash.length; i++) {
-        trash[i].addEventListener('click', (e) => {
-            const endpoint = `/entries/${trash.dataset.doc}`
-            fetch(endpoint, {
-            method: 'DELETE'
-        })
-        .then((response) => { response.json() })
-        .then(data => console.log(data))
-        .catch(err => console.log(err))
-        })
-    }
-    
-
-</script>
-  
-<script>
-    
     const trash = document.querySelector('a.delete')
     
-    
-    trash.addEventListener('click', (e) => {
-        const endpoint = `/entries/${trash.dataset.doc}`
-        fetch(endpoint, {
-            method: 'DELETE'
+        trash.addEventListener('click', async (e) => {
+            const endpoint = `/entries/${trash.dataset.doc}`
+            const response = await fetch(endpoint, { method: 'DELETE' })
+            const data = await response.json()
+            window.location.href = data.redirect
         })
-        .then((response) => { response.json() })
-        .then(data => console.log(data))
-        .catch(err => console.log(err))
-    })
-
 </script>

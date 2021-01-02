@@ -1,51 +1,27 @@
 
 <div id="content-flex">
-    <div id="header"><h1>archive</h1>
-        <a href="/users/logout" id="logout"><img src="./logout.svg" id="logout-icon" height=15" title="Log out"></a>
-    </div>
-        
+    <%- include('./partials/header.ejs') %>
     <div id="center-box">
         <%- include('./partials/navbar.ejs') %>
         <div id="content-box">
             <% if (entries.length === 0) { %>
                 There are no entries
                 <% } %>
-            <% if (entries.length == 1) { %>
-                <div class="entry-text">
-                    <div class="date"><%= entries[0].date.toLocaleString() %></div>
-                   <a href="/entries/<%= entries[i]._id %>"><div class="post-header"><%= entries[0].title %></div> </a> 
-                    <div class="post"><%= entries[0].description %></div>
-
-                <% if (entries[0].tags.length > 0) { %> 
-                    <% for (let j = 0; j < entries[0].tags.length; j++) { %>
-                        <span class="tag"><%= entries[0].tags[j] %></span>
-                        
-                        <% } %>
-                    <% } %>
-                
-                </div>
-             <% }  %>
-
-            <% if (entries.length > 1) { %>
-                <% for (let i = entries.length-1; i > 0; i--) { %>
+            <% if (entries.length > 0) { %>
+                <% for (let i = entries.length-1; i >= 0; i--) { %>
                     <div class="entry-text">
                         <div class="date"><%= entries[i].date.toLocaleString() %></div>
-                        <a href="/entries/<%= entries[i]._id %>"><div class="post-header"><%= entries[0].title %></div> </a> 
-                        <div class="post"><%= entries[i].description %></div>
+                        <a href="/entries/<%= entries[i]._id %>" class="post-header-link"><div class="post-header"><%= entries[i].title %></div></a>
+                        <div class="post"><%= (entries[i].description.length > 300) ? `${entries[i].description.substr(0, 300)} (...) `: entries[i].description %></div>
 
                     <% if (entries[i].tags.length > 0) { %> 
                         <% for (let j = 0; j < entries[i].tags.length; j++) { %>
                             <span class="tag"><%= entries[i].tags[j] %></span>
-                            
                             <% } %>
                         <% } %>
-                 
-                    </div> 
-            <% } } %>
+                </div>
+            <% }} %>
         </div>
-        
     </div>
 </div>
 
-
-  
