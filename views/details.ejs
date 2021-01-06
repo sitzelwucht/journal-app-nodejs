@@ -16,14 +16,16 @@
                     <% } %>
                 <% } %>
                 <div class="post-bottom">
-                    <a class="delete" data-doc= "<%= entry._id %>"><img src="/trash.svg" title="delete" height="25"></a>
+                    <a class="delete-edit" id="del" data-doc= "<%= entry._id %>"><img src="/trash.svg" title="delete" height="25"></a>
+                    <a href="/edit/<%= entry._id %>" class="delete-edit" id="edit" data-doc= "<%= entry._id %>"><img src="/pencil-square.svg" title="edit" height="25"></a>
+                    
                 </div>
             </div>
         </div>
     </div>
 </div>
 <script>
-    const trash = document.querySelector('a.delete')
+    const trash = document.querySelector('#del')
     
         trash.addEventListener('click', async (e) => {
             const endpoint = `/entries/${trash.dataset.doc}`
@@ -31,4 +33,5 @@
             const data = await response.json()
             window.location.href = data.redirect
         })
+
 </script>

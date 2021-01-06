@@ -5,9 +5,12 @@ const flash = require('connect-flash')
 const session = require('express-session')
 const passport = require('passport')
 require('dotenv').config()
+var methodOverride = require('method-override')
 
 const app = express()
 app.use(express.static(__dirname + '/public'));
+app.use(methodOverride('_method'))
+
 
 // Passport config
 require('./config/passport')(passport)
@@ -16,7 +19,7 @@ require('./config/passport')(passport)
 
 const db = process.env.mongoURI
 
-mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
     .then(() => console.log('DB connected'))
     .catch(err => console.log(err))
 

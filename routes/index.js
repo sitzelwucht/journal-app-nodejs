@@ -18,7 +18,7 @@ router.get('/home', checkAuth, (req, res) => {
 router.get('/new', checkAuth, (req, res) => {
     res.render('new', { 
         name: req.user.username,
-        pageheader: 'new entry' })
+        pageheader: 'new entry'})
 })
 
 router.get('/results', checkAuth, (req, res) => {
@@ -86,6 +86,26 @@ router.get('/entries/:id', async (req, res) => {
     }
 })
 
+// edit entry
+router.get('/edit/:id', async (req, res) => {
+    const id = req.params.id
+    try {
+        const entry = await Entry.findById(id)
+        res.render('edit', {
+            name: req.user.username,
+            pageheader: `edit '${entry.title}'`,
+            entryTitle: entry.title,
+            entryText: entry.description,
+            entryTags: entry.tags,
+            entry
+        })
+    }
+    catch (err) {
+        res.json({ message: err })
+    }
+
+})
+
 //POST
 
 // query for posts with search string
@@ -146,6 +166,29 @@ router.delete('/entries/:id', (req, res) => {
     catch (err) {
         res.json({ message: err })
     }
+})
+
+//TODO
+// PUT
+router.put('/entries/:id', async (req, res) => {
+    const id = req.params.id
+    let editedEntry;
+    try {
+        editedEntry = await Entry.findByIdAndUpdate(id, 
+            { title: req.body.title,
+                description: req.body.description,
+                tags: req.body.tags }
+            )
+        
+  
+        res.redirect('/archive')
+    }
+    catch (err) {
+        console.log(err)
+    }
+
+
+    
 })
 
 
