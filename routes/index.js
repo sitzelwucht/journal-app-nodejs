@@ -157,6 +157,7 @@ router.post('/add', async (req, res) => {
 
 
 // DELETE
+
 router.delete('/entries/:id', (req, res) => {
     const id = req.params.id
     try {
@@ -168,27 +169,24 @@ router.delete('/entries/:id', (req, res) => {
     }
 })
 
-//TODO
+
 // PUT
+
+// edit entries individually
 router.put('/entries/:id', async (req, res) => {
     const id = req.params.id
     let editedEntry;
     try {
         editedEntry = await Entry.findByIdAndUpdate(id, 
-            { title: req.body.title,
+            {   title: req.body.title,
                 description: req.body.description,
                 tags: req.body.tags }
             )
-        
-  
         res.redirect('/archive')
     }
     catch (err) {
         console.log(err)
     }
-
-
-    
 })
 
 

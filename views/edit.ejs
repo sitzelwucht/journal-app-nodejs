@@ -5,11 +5,9 @@
         <%- include('./partials/navbar.ejs') %>
             <div id="compose">
                 <form id="entry-form" action="/entries/<%= entry.id %>?_method=PUT" method="POST">
-                    
                     <div class="entry-form-input"><input type="text" id="title" name="title" placeholder="title" value="<%= entryTitle %>"></div>
                     <div class="entry-form-input"><textarea id="entry" name="description" rows="12" cols="100"><%= entryText %></textarea></div>
                     <div class="entry-form-input"><input type="text" id="tags" name="tags" placeholder="tags" value="<%= entryTags %>"></div>
-                    <input type="hidden" name="_method" value="PUT">
                     <button type="submit">Edit</button>
                 </form>
             </div>

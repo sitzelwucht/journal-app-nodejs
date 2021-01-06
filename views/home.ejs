@@ -1,13 +1,21 @@
 
 <div id="content-flex">
-       
     <%- include('./partials/header.ejs') %>
-    
     <div id="center-box">
         <%- include('./partials/navbar.ejs') %>
         <div id="content-box">  
-            <p>Welcome <%= name %></p>
+            <p id="welcome-msg"><% let time = new Date() %>
+                <% if(time.getHours() >= 5 && time.getHours() < 12) {  %> 
+                    Good morning 
+                   <% } %> 
+                   <%  if(time.getHours() >= 12 && time.getHours() < 18) {  %> 
+                    Good afternoon 
+                   <% } %> 
+                   <%  if(time.getHours() > 18) {  %> 
+                    Good evening
+                   <% } %> 
+                   
+            <span><%= name %></span></p>
         </div>
-
     </div>
 </div>
