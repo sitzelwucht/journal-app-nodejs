@@ -11,3 +11,10 @@
         </li>
     </ul>
 </div>
+
+<script>document.querySelector('#search-field').addEventListener('keypress', () =>{
+    if (event.code == 'Enter') {
+        document.querySelector('#search-form').submit()
+    }
+})
+</script>

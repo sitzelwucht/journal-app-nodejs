@@ -9,18 +9,15 @@
 </head>
 <body>
     <header><h1>Journal</h1>
-        <div id="header-left">  <img src="/moon.svg" height=20 id="mode-icon" ><h3 id="quote"></h3>
+        <div id="header-left">
+       <button id="mode">darkmode</button>
+              <h3 id="quote"></h3> 
     </header>     
     <div class="container">
         <%- body %>
     </div>
 
-    <script>document.querySelector('#search-field').addEventListener('keypress', () =>{
-        if (event.code == 'Enter') {
-            document.querySelector('#search-form').submit()
-        }
-    })
-    </script>
+
     <script src="../js/script.js"></script>
 </body>
 </html>

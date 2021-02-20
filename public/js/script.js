@@ -11,38 +11,39 @@ async function getQuote() {
         author: data[rand].author,
         quote: data[rand].text
     }
-    document.querySelector('#quote').innerHTML= `${quote.quote} <br>- ${quote.author}`
+
+    let authorName = quote.author == null ? 'Anonymous' : quote.author
+    document.querySelector('#quote').innerHTML= `${quote.quote} <br>- ${authorName}`
 
     }
         
         // dark mode
-    
-const currentTheme = localStorage.getItem("theme");
 
-    if (currentTheme == "dark") {
-        document.body.classList.add("darkmode");
-        document.querySelector('.container').classList.add('container-dark')
-        document.querySelectorAll('.current').forEach(item => item.classList.add('li-current-dark'))
-        document.querySelectorAll('.post').forEach(item => item.classList.add('post-dark'))
-        document.querySelectorAll('.entry-form-input').forEach(item => item.classList.add('input-dark'))
-        document.querySelector('#mode-icon').src = '/sun.svg'
-    }
+    let modeBtn = document.querySelector('#mode')
+    const currentTheme = localStorage.getItem("theme");
+    modeBtn.addEventListener('click', toggleMode)
 
-    document.querySelector("#mode-icon").addEventListener("click", () => {
-        document.body.classList.toggle("darkmode");
-        document.querySelector('.container').classList.toggle('container-dark')
-        document.querySelectorAll('.current').forEach(item => item.classList.toggle('li-current-dark'))
-        document.querySelectorAll('.post').forEach(item => item.classList.toggle('post-dark'))
-        document.querySelectorAll('.entry-form-input').forEach(item => item.classList.toggle('input-dark'))
+        if (currentTheme == "dark") {
+            document.body.classList.add("darkmode");
+            document.querySelector('.container').classList.add('container-dark')
+            document.querySelectorAll('.current').forEach(item => item.classList.add('li-current-dark'))
+            document.querySelectorAll('.post').forEach(item => item.classList.add('post-dark'))
+            document.querySelectorAll('.entry-form-input').forEach(item => item.classList.add('input-dark'))
+            modeBtn.innerHTML = 'daymode'
+        }
 
-       
-        let theme = "light";
-        if (document.body.classList.contains('darkmode')) {
-                theme = "dark";
-            }
-        localStorage.setItem('theme', theme);
-    
-        });
+        function toggleMode() {
+            document.body.classList.toggle("darkmode");
+            document.querySelector('.container').classList.toggle('container-dark')
+            document.querySelectorAll('.current').forEach(item => item.classList.toggle('li-current-dark'))
+            document.querySelectorAll('.post').forEach(item => item.classList.toggle('post-dark'))
+            document.querySelectorAll('.entry-form-input').forEach(item => item.classList.toggle('input-dark'))
+            modeBtn.innerHTML = modeBtn.innerHTML == 'daymode' ? modeBtn.innerHTML = 'nightmode' :  modeBtn.innerHTML = 'daymode'
+            modeBtn.classList.toggle('night')
 
-
-
+            let theme = "light";
+            if (document.body.classList.contains('darkmode')) {
+                    theme = "dark";
+                }
+            localStorage.setItem('theme', theme);
+        }

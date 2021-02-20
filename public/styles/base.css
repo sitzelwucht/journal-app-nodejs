@@ -283,3 +283,11 @@ li {
     opacity: 1
 }
 
+#mode {
+    padding: 0.3em;
+    height: 30px;
+    font-size: .8em;
+    outline: none;
+    background: grey;
+}
+
